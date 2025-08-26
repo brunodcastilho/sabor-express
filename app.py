@@ -56,7 +56,7 @@ def listar_restaurantes():
     print("\nRestaurantes cadastrados:")
     for idx, r in enumerate(restaurantes, 1):
         status = "Ativo" if r["ativo"] else "Inativo"
-        print(f"{idx}. {r['nome']} | Categoria: {r['categoria']} | Status: {status}")
+        print(f"{idx}. {r['nome']}".ljust(25) + f" | Categoria: {r['categoria']}".ljust(25) + f" | Status: {status}")
     print()
 
 def ativar_restaurante():
