@@ -62,10 +62,12 @@ def listar_restaurantes():
 def ativar_restaurante():
     listar_restaurantes()
     try:
-        escolha = int(input("Digite o número do restaurante para ativar: "))
+        escolha = int(input("Digite o número do restaurante para ativar/desativar: "))
         if 1 <= escolha <= len(restaurantes):
-            restaurantes[escolha - 1]["ativo"] = True
-            print(f"Restaurante '{restaurantes[escolha - 1]['nome']}' ativado!\n")
+            restaurante = restaurantes[escolha - 1]
+            restaurante["ativo"] = not restaurante["ativo"]
+            status = "ativado" if restaurante["ativo"] else "desativado"
+            print(f"Restaurante '{restaurante['nome']}' {status}!\n")
         else:
             print("Opção inválida.\n")
     except ValueError:
